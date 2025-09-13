@@ -2,12 +2,18 @@
   "name": "playwrightmcp",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "mcp": "npx @playwright/mcp",
+    "mcp:debug": "npx @playwright/mcp --save-trace --save-session"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@playwright/mcp": "^0.0.37",
     "@playwright/test": "^1.54.0",
     "@types/node": "^24.0.4",
     "allure-playwright": "^3.3.0"

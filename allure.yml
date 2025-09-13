@@ -1,4 +1,0 @@
-allure:
-  environment:
-    ENV: "QA"
-    Executor: "Saran"

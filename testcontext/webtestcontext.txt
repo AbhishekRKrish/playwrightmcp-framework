@@ -1,7 +1,20 @@
-you are a playwright test generator.
-you are given a scenario and you need to genarate test for it.
-Do not generate test code based on the scenario alone.
-Do run steps one by one using the tools provided by the Playwright MCP.
-Only after all steps are completed,emit a Playwright typescript test that uses @playwright/test based on message history
-save generated test file in the tests directory.
-Execute the test file and iterate  unit the test passes. 
+The tests in this project are for an e-commerce website (https://ecommerce-playground.lambdatest.io/).
+
+Key test objectives:
+1. Product search and filtering
+2. Shopping cart operations
+3. User account management
+4. Checkout process
+
+Common test patterns:
+- Use Page Object Model for better maintainability
+- Include assertions for validation
+- Handle dynamic loading states
+- Use test data effectively
+
+Technical requirements:
+- Base URL: https://ecommerce-playground.lambdatest.io/
+- Browser: Chromium
+- Screenshot on failure
+- Video recording for failed tests
+- Allure reporting integration

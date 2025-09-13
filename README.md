@@ -1,247 +1,327 @@
-🧪 Playwright MCP Automation with Allure Reports
-
-This repository showcases an innovative approach to Playwright test automation, powered by AI (GPT-4.1) in Visual Studio Code. It uses the Page Object Model (POM) for scalability and integrates with Allure Reports for rich, interactive test reporting. The project also supports Jenkins CI/CD for automated execution and reporting.
-
-🌟 Project Highlights
-🤖 AI-Powered Test Generation
-Uses GPT-4.1 to create end-to-end tests from scenarios and structured test context.
-
-🔁 Iterative Development Workflow
-Tests are generated, executed, and refined automatically until successful.
-
-🧱 Page Object Model (POM)
-Modular and maintainable design pattern for test reusability.
-
-📊 Allure Reports Integration
-Creates interactive test reports with detailed steps and visualizations.
-
-🔧 Jenkins CI/CD Ready
-
-Supports automated test runs and Allure report generation through Jenkins pipelines.
+# Playwright with MCP Test Automation Framework# Playwright with MCP Test Automation Framework
 
-🚀 Getting Started
-🛠️ Prerequisites
 
-Ensure the following tools are installed:
 
-📦 Node.js (LTS recommended)
+A comprehensive test automation framework that demonstrates the integration of Playwright with Model Context Protocol (MCP) and Allure reporting. This framework showcases automated testing of web applications using VS Code's MCP capabilities alongside traditional Playwright features.A comprehensive test automation framework that demonstrates the integration of Playwright with Model Context Protocol (MCP) and Allure reporting. This framework showcases automated testing of web applications using VS Code's MCP capabilities alongside traditional Playwright features.
 
-🧶 npm or Yarn
 
-💻 Visual Studio Code
 
-🎭 Playwright Browsers (npx playwright install)
+## 🌟 Key Features## 🌟 Key Features
 
-🧠 GitHub Copilot + Chat Extensions (optional but powerful)
 
-⚙️ Installation
-1. 📥 Clone the Repository
-git clone 
-2. 📦 Install Dependencies
-npm install
-# or
-yarn install
-3. 🎭 Install Playwright Browsers
-npx playwright install
-4. 📦 Install Allure Dependencies
-npm install -D allure-playwright allure-commandline
-🔧 Configure Allure in playwright.config.ts
-import { defineConfig } from '@playwright/test';
-export default defineConfig({
-  testDir: './tests',
-  reporter: [
-    ['list'],
-    ['html', { open: 'never' }],
-    ['allure-playwright', {
-      detail: true,
-      outputFolder: 'allure-results',
-      suiteTitle: false,
-    }],
-  ],
-  use: {
-    trace: 'on-first-retry',
-  },
-});
-🧪 Running Tests & Viewing Reports
-▶️ Run Tests
-npx playwright test
-➡️ This creates an allure-results/ folder with raw data.
-📊 Generate Allure Report
-npx allure generate allure-results --clean -o allure-report
-🌐 Open the Report
-npx allure open allure-report
-🤖 AI-Powered Test Generation Workflow
-🧠 AI Context Instructions
-Receive scenario input + test context
-Run MCP tools to inspect and interact
-Generate Playwright tests using POM
-Save under /tests/, execute, refine until passing
 
-Example Prompt
+- **MCP Integration**: Utilizes VS Code's Model Context Protocol for enhanced test automation capabilities- **MCP Integration**: Utilizes VS Code's Model Context Protocol for enhanced test automation capabilities
 
-Navigate to http://www.automationpractice.pl/index.php  
-Search for "T-shirts"  
-Verify "Faded short sleeve T-shirts" is in the results
-🔄 Automated Execution Cycle
-MCP loads test context
+- **Allure Reporting**: Detailed test execution reports with screenshots and traces- **Allure Reporting**: Detailed test execution reports with screenshots and traces
 
-GPT-4.1 emits test steps one-by-one
+- **TypeScript Support**: Strong typing and better code organization- **TypeScript Support**: Strong typing and better code organization
 
-Test saved and executed
+- **Page Object Pattern**: Modular and maintainable test structure- **Page Object Pattern**: Modular and maintainable test structure
 
-Iterates until it passes ✅
+- **Parallel Execution**: Efficient test execution using Playwright's worker threads- **Parallel Execution**: Efficient test execution using Playwright's worker threads
 
-💡 Using GitHub Copilot in Agent Mode
-Use GitHub Copilot Chat in VSCode to:
-Understand test goals
-Suggest code + commands
-Help fix errors
-Iterate on failing tests
 
-Agent Mode Steps:
 
-📦 Install GitHub Copilot and Copilot Chat
+## 🚀 Project Structure## 🚀 Project Structure
 
-🧠 Use prompts like:
 
-Generate a Playwright test for login using POM.
-Help debug why the test is failing.
-Copilot will analyze and take action based on the context.
 
-🌐 Jenkins CI/CD + Allure Integration
-You can run your tests automatically via Jenkins and view Allure reports in each build.
+``````
 
-🔧 Jenkins Prerequisites
-🖥️ Jenkins server running
+├── tests/├── tests/
 
-🟢 Node.js & npm/yarn installed on build agents
+│   └── product-search.spec.ts     # E-commerce search functionality tests│   └── product-search.spec.ts     # E-commerce search functionality tests
 
-🧪 Playwright + Allure set up in project
+├── playwright.config.ts           # Playwright and MCP configuration├── playwright.config.ts           # Playwright and MCP configuration
 
-📦 Allure CLI installed globally or locally
+├── package.json                   # Project dependencies├── package.json                   # Project dependencies
 
-📦 Install Jenkins Plugins
-Go to Manage Jenkins → Plugins → Available tab:
+└── allure.yml                     # Allure report configuration└── allure.yml                     # Allure report configuration
 
-✅ Allure Jenkins Plugin
+``````
 
-✅ NodeJS Plugin
 
-Restart Jenkins if prompted.
 
-🧰 Configure Global Tools
-NodeJS
+## 🛠️ Technologies & Tools## 🛠️ Technologies & Tools
 
-Go to Manage Jenkins → Global Tool Configuration
 
-Under NodeJS, add a version (e.g., NodeJS 18) and check "Install automatically"
 
-Allure CLI
+- Playwright- Playwright
 
-Download and unzip Allure CLI
+- Model Context Protocol (MCP)- Model Context Protocol (MCP)
 
-Add the bin/ folder path to the PATH environment variable of Jenkins agent
+- TypeScript- TypeScript
 
-🏗️ Create Jenkins Freestyle Job
-Click New Item → Freestyle project
+- Allure Reporting- Allure Reporting
 
-Name: Playwright-E2E-Tests
+- Node.js- Node.js
 
-Under Source Code Management → Git:
+- VS Code- VS Code
 
-Repo: https://github.com/your-username/your-repo-name.git
 
-Under Build Environment:
 
-✔️ Provide Node & npm bin folder to PATH
+## 🔧 Prerequisites## 🔧 Prerequisites
 
-Select previously configured NodeJS
 
-Build Steps:
 
-Add a new Execute Shell step (Linux/macOS) or Batch Command (Windows)
-npm install
-npx playwright install
-npx playwright test --reporter=line,allure-playwright
-📈 Add Post-Build Action: Allure Report
-Click Add post-build action → Allure Report
+- Node.js (v14 or higher)- Node.js (v14 or higher)
 
-Set "Path to results" as:allure-results
-✅ Run the Job
-Click Build Now and after completion, click the Allure Report link in build history to view your test execution results directly inside Jenkins.
+- VS Code with MCP support- VS Code with MCP support
 
-✅ Implemented Scenario Example
-🔍 Scenario:
-Search for a product on automationpractice.pl
+- npm (Node Package Manager)- npm (Node Package Manager)
 
-🧭 Steps:
-Navigate to homepage
-Search for "T-shirts"
-Validate "Faded short sleeve T-shirts" appears
-✅ Built using Page Object Model with AI-generated logic
 
-Jenkins File
-pipeline {
-  agent any
 
-  tools {
-    nodejs 'NodeJS 18' // Set this in Jenkins > Global Tool Configuration
-  }
+## 📦 Installation## 📦 Installation
 
-  environment {
-    // Add path to Allure if installed manually on the agent (optional)
-    PATH = "${env.PATH};C:\\allure-commandline\\bin"
-  }
 
-  stages {
-    stage('📦 Install Dependencies') {
-      steps {
-        echo 'Installing dependencies...'
-        bat 'npm install'
-        bat 'npx playwright install'
-      }
-    }
 
-    stage('🧪 Run Playwright Tests') {
-      steps {
-        echo 'Running Playwright tests with Allure reporter...'
-        bat 'npx playwright test --reporter=line,allure-playwright'
-      }
-    }
+1. Clone the repository:1. Clone the repository:
 
-    stage('📊 Generate Allure Report (CLI)') {
-      steps {
-        echo 'Generating Allure HTML Report...'
-        bat 'npx allure generate allure-results --clean -o allure-report'
-      }
-    }
-  }
+```bash```bash
 
-  post {
-    always {
-      echo 'Publishing Allure Report...'
-      allure includeProperties: false, jdk: '', reportBuildPolicy: 'ALWAYS', results: [[path: 'allure-results']]
-    }
-  }
-}
-📝 Notes:
-🔧 NodeJS 18 should match the label in Jenkins → Manage Jenkins → Global Tool Configuration
+git clone https://github.com/AbhishekRKrish/AbhishekRKrish.gitg
 
-🛠️ If allure is installed manually (not via npm), update the PATH in the environment block.
+``````
 
-✅ This script supports Windows agents (bat); change to sh for Linux/macOS agents.
 
-✅ How to Use This
-In Jenkins, create a new Pipeline project
 
-In the job config:
+2. Install dependencies:2. Install dependencies:
 
-Choose "Pipeline script from SCM"
+```bash```bash
 
-Set SCM to Git
+npm installnpm install
 
-Provide your GitHub repo URL
+``````
 
-Set script path to Jenkinsfile (case-sensitive)
 
-Save and click Build Now
+
+3. Install Playwright browsers:3. Install Playwright browsers:
+
+```bash```bash
+
+npx playwright installnpx playwright install
+
+``````
+
+
+
+## 🎯 MCP Integration## 🎯 MCP Integration
+
+
+
+This framework leverages VS Code's Model Context Protocol (MCP) to enhance test automation capabilities:This framework leverages VS Code's Model Context Protocol (MCP) to enhance test automation capabilities:
+
+
+
+- **Accessibility Testing**: MCP provides enhanced accessibility snapshots- **Accessibility Testing**: MCP provides enhanced accessibility snapshots
+
+- **Semantic Understanding**: Better element identification and interaction- **Semantic Understanding**: Better element identification and interaction
+
+- **VS Code Integration**: Direct integration with VS Code's testing features- **VS Code Integration**: Direct integration with VS Code's testing features
+
+- **Automatic State Management**: MCP handles browser state and context- **Automatic State Management**: MCP handles browser state and context
+
+
+
+Example MCP usage in tests:Example MCP usage in tests:
+
+```typescript```typescript
+
+test('Search using MCP', async ({ page }) => {test('Search using MCP', async ({ page }) => {
+
+  // MCP automatically enhances these Playwright commands  // MCP automatically enhances these Playwright commands
+
+  await page.goto('/');  await page.goto('/');
+
+  const snapshot = await page.accessibility.snapshot();  const snapshot = await page.accessibility.snapshot();
+
+  const searchBox = page.getByRole('textbox', { name: 'Search' });  const searchBox = page.getByRole('textbox', { name: 'Search' });
+
+  await searchBox.fill('search term');  await searchBox.fill('search term');
+
+});});
+
+``````
+
+
+
+## 🧪 Running Tests## 🧪 Running Tests
+
+
+
+1. Run all tests:1. Run all tests:
+
+```bash```bash
+
+npm testnpm test
+
+``````
+
+
+
+2. Run specific test file:2. Run specific test file:
+
+```bash```bash
+
+npx playwright test tests/product-search.spec.tsnpx playwright test tests/product-search.spec.ts
+
+``````
+
+
+
+3. Run tests with UI mode:3. Run tests with UI mode:
+
+```bash```bash
+
+npx playwright test --uinpx playwright test --ui
+
+``````
+
+
+
+## 📊 Test Reports## 📊 Test Reports
+
+
+
+Generate and view Allure reports:Generate and view Allure reports:
+
+
+
+```bash```bash
+
+# Generate report# Generate report
+
+npx allure generate allure-results -o allure-report --cleannpx allure generate allure-results -o allure-report --clean
+
+
+
+# Open report# Open report
+
+npx allure open allure-reportnpx allure open allure-report
+
+``````
+
+
+
+## ⚙️ Configuration## ⚙️ Configuration
+
+
+
+### Playwright Configuration### Playwright Configuration
+
+```typescript```typescript
+
+// playwright.config.ts// playwright.config.ts
+
+export default defineConfig({export default defineConfig({
+
+  testDir: './tests',  testDir: './tests',
+
+  reporter: [['list'], ['allure-playwright']],  reporter: [['list'], ['allure-playwright']],
+
+  use: {  use: {
+
+    baseURL: 'https://ecommerce-playground.lambdatest.io',    baseURL: 'https://ecommerce-playground.lambdatest.io',
+
+    trace: 'on-first-retry',    trace: 'on-first-retry',
+
+    video: 'on-first-retry',    video: 'on-first-retry',
+
+    screenshot: 'only-on-failure'    screenshot: 'only-on-failure'
+
+  }  }
+
+});});
+
+``````
+
+
+
+### MCP Features### MCP Features
+
+- Automatic accessibility testing- Automatic accessibility testing
+
+- Enhanced element location strategies- Enhanced element location strategies
+
+- Improved test stability- Improved test stability
+
+- VS Code integration for better debugging- VS Code integration for better debugging
+
+
+
+## 🔍 Test Scenarios## 🔍 Test Scenarios
+
+
+
+Current test scenarios include:Current test scenarios include:
+
+- E-commerce product search- E-commerce product search
+
+- Results validation- Results validation
+
+- Accessibility testing using MCP- Accessibility testing using MCP
+
+- Multiple verification points:- Multiple verification points:
+
+  - Page title  - Page title
+
+  - Product visibility  - Product visibility
+
+  - URL validation  - URL validation
+
+  - Accessibility snapshots  - Accessibility snapshots
+
+
+
+## 🐛 Debugging## 🐛 Debugging
+
+
+
+1. Use VS Code's built-in debugger with MCP integration1. Use VS Code's built-in debugger with MCP integration
+
+2. Leverage Playwright's trace viewer:2. Leverage Playwright's trace viewer:
+
+```bash```bash
+
+npx playwright show-trace trace.zipnpx playwright show-trace trace.zip
+
+``````
+
+3. Utilize MCP's enhanced debugging capabilities in VS Code3. Utilize MCP's enhanced debugging capabilities in VS Code
+
+
+
+## 🤝 Contributing## 🤝 Contributing
+
+
+
+1. Fork the repository1. Fork the repository
+
+2. Create your feature branch2. Create your feature branch
+
+3. Commit your changes3. Commit your changes
+
+4. Push to the branch4. Push to the branch
+
+5. Create a Pull Request5. Create a Pull Request
+
+
+
+## 📄 License## 📄 License
+
+
+
+ISC LicenseISC License
+
+
+
+## 📚 Resources## 📚 Resources
+
+
+
+- [Playwright Documentation](https://playwright.dev)- [Playwright Documentation](https://playwright.dev)
+
+- [VS Code MCP Documentation](https://code.visualstudio.com)- [VS Code MCP Documentation](https://code.visualstudio.com)
+
+- [Allure Framework](https://docs.qameta.io/allure/)- [Allure Framework](https://docs.qameta.io/allure/)

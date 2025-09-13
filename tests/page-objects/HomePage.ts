@@ -1,23 +1,35 @@
-// page-objects/HomePage.ts
-import { Page, Locator } from '@playwright/test';
+import { Page } from '@playwright/test';
 
 export class HomePage {
-  readonly page: Page;
-  readonly searchInput: Locator;
-  readonly searchButton: Locator;
+    private readonly page: Page;
+    private readonly searchInput;
 
-  constructor(page: Page) {
-    this.page = page;
-    this.searchInput = page.locator('#search_query_top');
-    this.searchButton = page.locator('button[name="submit_search"]');
-  }
+    constructor(page: Page) {
+        this.page = page;
+        this.searchInput = this.page.getByRole('textbox', { name: 'Search For Products' });
+    }
 
-  async goto() {
-    await this.page.goto('http://www.automationpractice.pl/index.php');
-  }
+    /**
+     * Navigate to the home page
+     */
+    async goto() {
+        await this.page.goto('/');
+    }
 
-  async searchFor(text: string) {
-    await this.searchInput.fill(text);
-    await this.searchButton.click();
-  }
+    /**
+     * Search for a product using the search box
+     * @param productName The name of the product to search for
+     */
+    async searchForProduct(productName: string) {
+        await this.searchInput.fill(productName);
+        await this.searchInput.press('Enter');
+    }
+
+    /**
+     * Get the current page title
+     * @returns Promise<string> The page title
+     */
+    async getPageTitle(): Promise<string> {
+        return await this.page.title();
+    }
 }
