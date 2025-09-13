@@ -164,7 +164,7 @@ npx allure generate allure-results -o allure-report --cleannpx allure generate a
 
 
 
-# Open report# Open report
+# Open report
 
 npx allure open allure-reportnpx allure open allure-report
 
@@ -172,11 +172,8 @@ npx allure open allure-reportnpx allure open allure-report
 
 
 
-## ⚙️ Configuration## ⚙️ Configuration
 
-
-
-### Playwright Configuration### Playwright Configuration
+### Playwright Configuration
 
 ```typescript```typescript
 
@@ -206,7 +203,7 @@ export default defineConfig({export default defineConfig({
 
 
 
-### MCP Features### MCP Features
+### MCP Features
 
 - Automatic accessibility testing- Automatic accessibility testing
 
@@ -218,7 +215,7 @@ export default defineConfig({export default defineConfig({
 
 
 
-## 🔍 Test Scenarios## 🔍 Test Scenarios
+## 🔍 Test Scenarios
 
 
 
@@ -242,7 +239,7 @@ Current test scenarios include:Current test scenarios include:
 
 
 
-## 🐛 Debugging## 🐛 Debugging
+## 🐛 Debugging## 
 
 
 
@@ -260,31 +257,7 @@ npx playwright show-trace trace.zipnpx playwright show-trace trace.zip
 
 
 
-## 🤝 Contributing## 🤝 Contributing
 
-
-
-1. Fork the repository1. Fork the repository
-
-2. Create your feature branch2. Create your feature branch
-
-3. Commit your changes3. Commit your changes
-
-4. Push to the branch4. Push to the branch
-
-5. Create a Pull Request5. Create a Pull Request
-
-
-
-## 📄 License## 📄 License
-
-
-
-ISC LicenseISC License
-
-
-
-## 📚 Resources## 📚 Resources
 
 
 
