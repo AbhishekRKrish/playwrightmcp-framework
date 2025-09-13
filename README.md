@@ -1,52 +1,32 @@
-Playwright with MCP Test Automation Framework
+# Playwright with MCP Test Automation Framework
 
+A comprehensive test automation framework that demonstrates the integration of Playwright with Model Context Protocol (MCP) and Allure reporting. This framework showcases automated testing of web applications using VS Code's MCP capabilities alongside traditional Playwright features.
 
+## 🌟 Key Features
 
-A comprehensive test automation framework that demonstrates the integration of Playwright with Model Context Protocol (MCP) and Allure reporting. This framework showcases automated testing of web applications using VS Code's MCP capabilities alongside traditional Playwright features.A comprehensive test automation framework that demonstrates the integration of Playwright with Model Context Protocol (MCP) and Allure reporting. This framework showcases automated testing of web applications using VS Code's MCP capabilities alongside traditional Playwright features.
+- **MCP Integration**: Utilizes VS Code's Model Context Protocol for enhanced test automation capabilities
+- **Allure Reporting**: Detailed test execution reports with screenshots and traces
+- **TypeScript Support**: Strong typing and better code organization
+- **Page Object Pattern**: Modular and maintainable test structure
+- **Parallel Execution**: Efficient test execution using Playwright's worker threads
 
+## 🚀 Project Structure
 
+```
+├── tests/
+│   ├── category-section.spec.ts   # Category section tests
+│   ├── product-price-mcp.spec.ts  # Product price verification tests
+│   └── product-search-mcp.spec.ts # Product search tests
+├── testcontext/                   # MCP test context files
+├── page-objects/                  # Page Object Model classes
+├── playwright.config.ts           # Playwright configuration
+├── .mcp.json                      # MCP configuration
+└── package.json                   # Project dependencies
+```
 
-## 🌟 Key Features## 🌟 Key Features
+## 🛠️ Technologies & Tools
 
-
-
-- **MCP Integration**: Utilizes VS Code's Model Context Protocol for enhanced test automation capabilities- **MCP Integration**: Utilizes VS Code's Model Context Protocol for enhanced test automation capabilities
-
-- **Allure Reporting**: Detailed test execution reports with screenshots and traces- **Allure Reporting**: Detailed test execution reports with screenshots and traces
-
-- **TypeScript Support**: Strong typing and better code organization- **TypeScript Support**: Strong typing and better code organization
-
-- **Page Object Pattern**: Modular and maintainable test structure- **Page Object Pattern**: Modular and maintainable test structure
-
-- **Parallel Execution**: Efficient test execution using Playwright's worker threads- **Parallel Execution**: Efficient test execution using Playwright's worker threads
-
-
-
-## 🚀 Project Structure## 🚀 Project Structure
-
-
-
-``````
-
-├── tests/├── tests/
-
-│   └── product-search.spec.ts     # E-commerce search functionality tests│   └── product-search.spec.ts     # E-commerce search functionality tests
-
-├── playwright.config.ts           # Playwright and MCP configuration├── playwright.config.ts           # Playwright and MCP configuration
-
-├── package.json                   # Project dependencies├── package.json                   # Project dependencies
-
-└── allure.yml                     # Allure report configuration└── allure.yml                     # Allure report configuration
-
-``````
-
-
-
-## 🛠️ Technologies & Tools## 🛠️ Technologies & Tools
-
-
-
-- Playwright- Playwright
+- Playwright
 
 - Model Context Protocol (MCP)- Model Context Protocol (MCP)
 
@@ -68,55 +48,43 @@ A comprehensive test automation framework that demonstrates the integration of P
 
 - VS Code with MCP support- VS Code with MCP support
 
-- npm (Node Package Manager)- npm (Node Package Manager)
+- Model Context Protocol (MCP)
+- TypeScript
+- Node.js
+- VS Code
+- Allure Reporting
 
+## 🔧 Prerequisites
 
+- Node.js (v14 or higher)
+- VS Code with MCP support
+- npm (Node Package Manager)
+- TypeScript
+- Allure Reporter
 
-## 📦 Installation## 📦 Installation
+## 📦 Installation
 
+1. Clone the repository:
+```bash
+git clone https://github.com/AbhishekRKrish/playwrightmcp-framework.git
+```
 
+2. Install dependencies:
+```bash
+npm install
+```
 
-1. Clone the repository:1. Clone the repository:
+3. Install Playwright browsers:
+```bash
+npx playwright install
+```
 
-```bash```bash
+## 🎯 MCP Integration
 
-git clone https://github.com/AbhishekRKrish/AbhishekRKrish.gitg
+This framework leverages VS Code's Model Context Protocol (MCP) to enhance test automation capabilities:
 
-``````
-
-
-
-2. Install dependencies:2. Install dependencies:
-
-```bash```bash
-
-npm installnpm install
-
-``````
-
-
-
-3. Install Playwright browsers:3. Install Playwright browsers:
-
-```bash```bash
-
-npx playwright installnpx playwright install
-
-``````
-
-
-
-## 🎯 MCP Integration## 🎯 MCP Integration
-
-
-
-This framework leverages VS Code's Model Context Protocol (MCP) to enhance test automation capabilities:This framework leverages VS Code's Model Context Protocol (MCP) to enhance test automation capabilities:
-
-
-
-- **Accessibility Testing**: MCP provides enhanced accessibility snapshots- **Accessibility Testing**: MCP provides enhanced accessibility snapshots
-
-- **Semantic Understanding**: Better element identification and interaction- **Semantic Understanding**: Better element identification and interaction
+- **Accessibility Testing**: MCP provides enhanced accessibility snapshots
+- **Semantic Understanding**: Better element identification and interaction
 
 - **VS Code Integration**: Direct integration with VS Code's testing features- **VS Code Integration**: Direct integration with VS Code's testing features
 
